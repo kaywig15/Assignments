@@ -1,9 +1,9 @@
 const product1 = {
   dogBreed: "Corgi",
   price: 1500,
-  description: "High energy small herding dog",
+  description: "Small herding dog with high energy.",
   image:
-    "https://www.dailypaws.com/thmb/hr2f0QpU6Bywd8iWj44wGmkfltM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/pembroke-welsh-corgi-on-stairs-1163785112-2000-142d1a9393dd450d9ef59cd6b65ce15c.jpg",
+    "https://barkalot.com/cdn/shop/articles/Welchcorgipembroke.jpg?v=1655987048",
 };
 
 const products = [
@@ -11,19 +11,52 @@ const products = [
   {
     dogBreed: "Labrador",
     price: 2000,
-    description: "Loyal large breed dog with low energy",
+    description: "Large bird dog that is great with families.",
     image:
       "https://myredfoxlabs.com/wp-content/uploads/ginger-red-lab-female-768x960.webp",
   },
   {
     dogBreed: "Rottweiler",
     price: 1000,
-    description: "Large dog that is great with kids",
+    description: "Large dog renowned for its coloration.",
     image:
       "https://www.lovemydogz.com/wp-content/smush-webp/2021/04/rottweiler-kocka-scaled.jpg.webp",
   },
 ];
+
 function displayProducts(products) {
   const container = document.createElement("div");
   container.className = "product-container";
+
+  products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.className = "product";
+
+    const nameElement = document.createElement("h2");
+    nameElement.textContent = product.dogBreed;
+
+    const priceElement = document.createElement("p");
+    priceElement.textContent = `Price: $${product.price}`;
+
+    const descriptionElement = document.createElement("p");
+    descriptionElement.textContent = product.description;
+
+    const imageElement = document.createElement("img");
+    imageElement.src = product.image;
+    imageElement.alt = product.dogBreed;
+    imageElement.style.width = "200px";
+
+    productDiv.appendChild(nameElement);
+    productDiv.appendChild(priceElement);
+    productDiv.appendChild(descriptionElement);
+    productDiv.appendChild(imageElement);
+
+    container.appendChild(productDiv);
+  });
+  document.body.appendChild(container);
+}
+
+function removeProducts() {
+  const deleteProduct = document.getElementsByClassName("product-container");
+  deleteProduct.item(0).remove(0);
 }
