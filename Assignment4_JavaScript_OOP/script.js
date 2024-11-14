@@ -5,13 +5,6 @@ class Book {
     this.genre = genre;
     this.year = year;
   }
-  displayDetails() {
-    console.log(`Title: ${this.title}`);
-    console.log(`Author: ${this.author}`);
-    console.log(`Genre: ${this.genre}`);
-    console.log(`Year: ${this.year}`);
-  }
-
   getSummary() {
     return `Title: ${this.title}, Author: ${this.author}, Genre: ${this.genre}, Year: ${this.year}`;
   }
